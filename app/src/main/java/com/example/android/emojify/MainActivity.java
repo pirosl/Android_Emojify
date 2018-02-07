@@ -183,6 +183,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the new bitmap to the ImageView
         mImageView.setImageBitmap(mResultsBitmap);
+
+        // process image using Emojifier class
+        Emojifier.detectFaces(this, mResultsBitmap);
     }
 
 
