@@ -72,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
         mSaveFab = (FloatingActionButton) findViewById(R.id.save_button);
         mClearFab = (FloatingActionButton) findViewById(R.id.clear_button);
         mTitleTextView = (TextView) findViewById(R.id.title_text_view);
+
+        Emojifier.init(this);
+    }
+
+    @Override
+    protected  void onDestroy() {
+        super.onDestroy();
+        Emojifier.release();
     }
 
     /**
