@@ -189,11 +189,11 @@ public class MainActivity extends AppCompatActivity {
         // Resample the saved image to fit the ImageView
         mResultsBitmap = BitmapUtils.resamplePic(this, mTempPhotoPath);
 
-        // Set the new bitmap to the ImageView
-        mImageView.setImageBitmap(mResultsBitmap);
-
         // process image using Emojifier class
-        Emojifier.detectFaces(this, mResultsBitmap);
+        Bitmap overlayedBitmap = Emojifier.detectFacesAndOverlayEmoji(this, mResultsBitmap);
+
+        // Set the new bitmap to the ImageView
+        mImageView.setImageBitmap(overlayedBitmap);
     }
 
 
