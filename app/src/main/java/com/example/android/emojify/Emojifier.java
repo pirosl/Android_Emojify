@@ -21,7 +21,7 @@ public class Emojifier {
             faceDetector = new FaceDetector
                     .Builder(context)
                     .setTrackingEnabled(false)
-                    .setLandmarkType(FaceDetector.ALL_LANDMARKS)
+                    .setClassificationType(FaceDetector.ALL_CLASSIFICATIONS)
                     .build();
         }
     }
@@ -35,6 +35,7 @@ public class Emojifier {
 
     public static void detectFaces(Context context, Bitmap bitmap) {
         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
+
         if(faceDetector.isOperational()) {
             SparseArray<Face> faces = faceDetector.detect(frame);
             Toast.makeText(context, "Faces: " + faces.size() , Toast.LENGTH_SHORT).show();
